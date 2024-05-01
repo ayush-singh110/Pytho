@@ -1,0 +1,60 @@
+from tkinter import*
+def getvals():
+    print("Submitting the form")
+    print(f"{n1.get(),p1.get(),g1.get(),e1.get(),pay1.get()}")
+    with open("records.txt","a") as f:
+        f.write(f"{n1.get(),p1.get(),g1.get(),e1.get(),pay1.get()}\n")
+
+
+
+
+
+
+root=Tk()
+root.geometry("500x450")
+#root.minsize(450,300)
+#root.maxsize(600,500)
+l=Label(root,text="Welcome to Ayush Travels",pady="40",font=("arial",13,"bold"))
+l.grid(row=0,column=3)
+
+
+name=Label(root,text="Name:")
+phone=Label(root,text="Phone:")
+gender=Label(root,text="Gender:")
+emer=Label(root,text="Emergency Contact:")
+pay=Label(root,text="Payment Mode:")
+name.grid(row=1,column=2)
+phone.grid(row=2,column=2)
+gender.grid(row=3,column=2)
+emer.grid(row=4,column=2)
+pay.grid(row=5,column=2)
+
+
+n=StringVar()
+p=StringVar()
+g=StringVar()
+e=StringVar()
+pay=StringVar()
+foodservicevalue=IntVar()
+
+n1=Entry(root,textvariable=n)
+p1=Entry(root,textvariable=p)
+g1=Entry(root,textvariable=g)
+e1=Entry(root,textvariable=e)
+pay1=Entry(root,textvariable=pay)
+
+n1.grid(row=1,column=3)
+p1.grid(row=2,column=3)
+g1.grid(row=3,column=3)
+e1.grid(row=4,column=3)
+pay1.grid(row=5,column=3)
+
+foodservice=Checkbutton(root,text="Want to prebook your meals?",variable=foodservicevalue)
+foodservice.grid(row=6,column=3)
+
+b=Button(text="Submit to Ayush Travels",command=getvals)
+b.grid(row=7,column=3)
+
+
+
+root.mainloop()# Pytho
